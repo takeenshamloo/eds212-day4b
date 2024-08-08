@@ -1,0 +1,44 @@
+---
+title: "Day 4: Afternoon Session"
+author: "Takeen Shamloo"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = FALSE}
+# load libraries ----
+library(GGally)
+library(skimr)
+library(palmerpenguins)
+library(tidyverse)
+
+# Always look at it ----
+# View(penguins)
+
+# Check the column names ----
+names(penguins) 
+
+# Check the dimensions ----
+dim(penguins) 
+
+# Get a summary ----
+summary(penguins) 
+
+# Get a summary with {skimr} ----
+skimr::skim(penguins)
+
+# head & tail ----
+head(penguins, n = 3)
+tail(penguins)
+
+# pairs plot ----
+GGally::ggpairs(penguins, 
+                columns = 3:6,
+                ggplot2::aes(color = species))
+
+# create histogram of penguin flipper lengths ----
+ggplot(penguins, aes(x = flipper_length_mm, color = species)) +
+  geom_histogram()
+```
+
